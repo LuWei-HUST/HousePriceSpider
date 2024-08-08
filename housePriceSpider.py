@@ -19,27 +19,31 @@ if __name__ == "__main__":
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
     }
     
-    i = 1
-    while True:
+    # i = 1
+    # while True:
         
-        time.sleep(random.randint(1, 5))
+    #     time.sleep(random.randint(1, 5))
         
-        url = urlFormat.format(i)
+    #     url = urlFormat.format(i)
 
-        r = requests.get(url=url, headers=headers)
+    #     try:
+    #         r = requests.get(url=url, headers=headers, timeout=30)
+    #     except Exception as e:
+    #         print(str(e))
+    #         continue
     
-        print("got page ", i)
+    #     print("got page ", i)
     
-        text = r.text
+    #     text = r.text
     
-        with open((tempPath + "/page{}.html").format(i), "w", encoding="utf-8") as f:
-            f.write(text)
+    #     with open((tempPath + "/page{}.html").format(i), "w", encoding="utf-8") as f:
+    #         f.write(text)
             
-        i += 1
-        if i > 10:
-            break
+    #     i += 1
+    #     if i > 10:
+    #         break
 
-    print(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()))
+    # print(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime()))
     
     res = []
     for i in range(1, 11):
@@ -103,7 +107,7 @@ if __name__ == "__main__":
                 
                 tmp = copy.deepcopy(dataDict)
                 res.append(tmp)
-                
+    
                 
     df = pd.DataFrame(res)
     
